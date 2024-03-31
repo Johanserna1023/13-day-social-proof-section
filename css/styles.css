@@ -1,0 +1,246 @@
+/* -----------------
+Tabla de contenidos:
+--------------------
+1. Fuente ................ 11
+2. Variables ............. 17
+3. Estilos generales ..... 32
+-------------------- 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+/* ----- Fuente ----- */
+
+/* ----- Variables ----- */
+:root{
+
+/* ### Colores primarios */
+--Very-Dark-Magenta: hsl(300, 43%, 22%);
+--Soft-Pink: hsl(333, 80%, 67%);
+
+/* ### Colores neutrales */
+--Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+--Light-Grayish-Magenta: hsl(300, 24%, 96%);
+--White: hsl(0, 0%, 100%);
+
+font-size: 62.5%;
+}
+
+
+/* ----------------------------- */
+/* ----- Estilos generales ----- */
+/* ----------------------------- */
+
+body{
+    min-height: 100vh;
+    font-size: 1.5rem;
+    font-family: 'League Spartan', sans-serif;
+    padding: 2.4rem;
+    display: grid;
+    place-content: center;
+    background-image: url("../images/bg-pattern-top-mobile.svg"), url("../images/bg-pattern-bottom-mobile.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto;
+    background-position:top 0 left 0, bottom 0 right 0;
+}
+
+main{
+    margin-top: 5.8rem;
+    /* border: 3px dashed red; */
+}
+
+.title{
+    max-width: 44.4rem;
+    /* border: 3px dashed blue; */
+}
+
+.title h1{
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 3.2rem;
+    text-align: center;
+    color: var(--Very-Dark-Magenta);
+    margin-bottom: 2.4rem;
+    letter-spacing: -0.03rem;
+}
+
+.title p{
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+    text-align: center;
+    letter-spacing: -0.03rem;
+    color: var(--Dark-Grayish-Magenta);
+    margin-bottom: 3.8rem;
+}
+
+ul{
+    list-style: none;
+    margin-bottom: 4.5rem;
+    margin: 0;
+    padding: 0;
+    /* border: 3px dashed black; */
+}
+
+li{
+    text-align: center;
+    background-color: var(--Light-Grayish-Magenta);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.025rem;
+    color: var(--Very-Dark-Magenta);
+    margin-bottom: 1.6rem;
+    max-width: 44.4rem;
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+ul li span{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 1.6rem;
+   gap: 1rem;
+
+}
+
+/* reviews */
+
+.review{
+    max-width: 44.4rem;
+    background-color: var(--Very-Dark-Magenta);
+    border-radius: 1rem;
+    padding: 3.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    margin-bottom: 2.8rem;
+}
+
+.profile img{
+    width: 5rem;
+    border-radius:50%;
+
+}
+
+.name span{
+    display: block;
+}
+
+.name span:nth-child(1){
+    font-size: 2rem;
+    color:var(--White);
+    font-weight: 700;
+    margin-bottom: .4rem;
+}
+
+.name span:nth-child(2){
+    font-size: 1.9rem;
+    color: var(--Soft-Pink);
+    font-weight: 400;
+}
+
+.review p{
+    color: var(--White);
+    text-align: left;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 1000px){
+    body{
+        padding: 0;
+        background-image: url("../images/bg-pattern-top-desktop.svg"), url("../images/bg-pattern-bottom-desktop.svg");
+        place-content: inherit;
+    }
+
+    main{
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 44.4rem auto;
+        grid-template-areas: 
+            "title rated"
+            "reviews reviews";
+        margin: 0;
+    }
+
+    .title{
+        grid-area: title;
+        max-width: 72rem;
+        padding: 10rem 12rem 0 16rem;
+    }
+
+    .title h1{
+        text-align: left;
+        font-size: 5.5rem;
+        line-height: 4.8rem;
+        margin-bottom: 2.6rem;
+    }
+
+    .title p{
+        text-align: left;
+    }
+
+    ul{
+        grid-area: rated;
+        max-width: 72rem;
+        margin: 0;
+        padding-top: 15rem;
+    }
+
+    li{
+        min-height: 3rem;
+    }
+
+    ul li{
+        display:flex;
+        align-items: center;
+        gap: 3.2rem;
+        padding: 1.9rem 3.2rem;
+    }
+    ul li span{
+        margin-bottom: 0;
+    }
+    
+
+    ul li:nth-child(2){
+        margin-left: 6rem;
+    }
+
+    ul li:nth-child(3){
+        margin-left: 12rem;
+    }
+
+    .reviews{
+        grid-area:reviews;
+        display: flex;
+        gap: 3rem;
+        padding-left: 16rem;
+    }
+
+    .review{
+        max-height: 17rem;
+        max-width: 33rem;
+        padding: 4rem 3rem;
+    }
+
+    .review p{
+        line-height: 2.4rem;
+    }
+
+    .review:nth-child(2){
+        margin-top: 3rem;
+    }
+
+    .review:nth-child(3){
+        margin-top: 9rem;
+    }
+    
+}
